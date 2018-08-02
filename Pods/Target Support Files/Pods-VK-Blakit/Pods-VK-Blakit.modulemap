@@ -1,0 +1,6 @@
+framework module Pods_VK_Blakit {
+  umbrella header "Pods-VK-Blakit-umbrella.h"
+
+  export *
+  module * { export * }
+}

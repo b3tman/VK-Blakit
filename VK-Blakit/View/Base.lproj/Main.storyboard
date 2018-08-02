@@ -33,6 +33,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dW2-0t-sQO"/>
                                     <segue destination="TeH-7w-zjX" kind="show" identifier="wallSegue" id="keX-ro-6tr"/>
                                 </connections>
                             </button>
@@ -75,7 +76,13 @@
                             <outlet property="delegate" destination="wF4-af-15V" id="xo6-xk-Hyx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FOW-UE-ni2"/>
+                    <navigationItem key="navigationItem" id="FOW-UE-ni2">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="MKk-Hm-bW7">
+                            <connections>
+                                <action selector="logoutAction:" destination="wF4-af-15V" id="2hr-4S-ZPs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFB-ev-9Tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

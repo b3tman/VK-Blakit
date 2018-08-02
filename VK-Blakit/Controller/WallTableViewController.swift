@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class WallTableViewController: UITableViewController {
 
@@ -15,6 +16,11 @@ class WallTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
+    }
+    
+    //MARK: - Actions
+    @IBAction func logoutAction(_ sender: UIBarButtonItem) {
+        VKSdk.forceLogout()
     }
     
     //MARK: - Private
