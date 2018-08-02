@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		F236FEAB2112CEAB0081BC94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236FEAA2112CEAB0081BC94 /* AppDelegate.swift */; };
-		F236FEAD2112CEAB0081BC94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236FEAC2112CEAB0081BC94 /* ViewController.swift */; };
 		F236FEB02112CEAB0081BC94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F236FEAE2112CEAB0081BC94 /* Main.storyboard */; };
 		F236FEB22112CEAC0081BC94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F236FEB12112CEAC0081BC94 /* Assets.xcassets */; };
 		F236FEB52112CEAC0081BC94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F236FEB32112CEAC0081BC94 /* LaunchScreen.storyboard */; };
+		F236FEC02112DC930081BC94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236FEBF2112DC930081BC94 /* LoginViewController.swift */; };
+		F236FEC22112DCB20081BC94 /* WallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236FEC12112DCB20081BC94 /* WallTableViewController.swift */; };
+		F236FEC72112EF920081BC94 /* WallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236FEC52112EF920081BC94 /* WallTableViewCell.swift */; };
+		F236FEC82112EF920081BC94 /* WallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F236FEC62112EF920081BC94 /* WallTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F236FEA72112CEAB0081BC94 /* VK-Blakit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK-Blakit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F236FEAA2112CEAB0081BC94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F236FEAC2112CEAB0081BC94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F236FEAF2112CEAB0081BC94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F236FEB12112CEAC0081BC94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F236FEB42112CEAC0081BC94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F236FEB62112CEAC0081BC94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F236FEBF2112DC930081BC94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F236FEC12112DCB20081BC94 /* WallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallTableViewController.swift; sourceTree = "<group>"; };
+		F236FEC52112EF920081BC94 /* WallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallTableViewCell.swift; sourceTree = "<group>"; };
+		F236FEC62112EF920081BC94 /* WallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,57 @@
 		F236FEA92112CEAB0081BC94 /* VK-Blakit */ = {
 			isa = PBXGroup;
 			children = (
-				F236FEAA2112CEAB0081BC94 /* AppDelegate.swift */,
-				F236FEAC2112CEAB0081BC94 /* ViewController.swift */,
+				F236FEBE2112D7780081BC94 /* Model */,
+				F236FEBD2112D7730081BC94 /* View */,
+				F236FEBC2112D76B0081BC94 /* Controller */,
+				F236FEC32112EB2C0081BC94 /* Supporting files */,
+			);
+			path = "VK-Blakit";
+			sourceTree = "<group>";
+		};
+		F236FEBC2112D76B0081BC94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F236FEBF2112DC930081BC94 /* LoginViewController.swift */,
+				F236FEC12112DCB20081BC94 /* WallTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F236FEBD2112D7730081BC94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F236FEC42112EF700081BC94 /* Cell */,
 				F236FEAE2112CEAB0081BC94 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F236FEBE2112D7780081BC94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F236FEC32112EB2C0081BC94 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				F236FEAA2112CEAB0081BC94 /* AppDelegate.swift */,
 				F236FEB12112CEAC0081BC94 /* Assets.xcassets */,
 				F236FEB32112CEAC0081BC94 /* LaunchScreen.storyboard */,
 				F236FEB62112CEAC0081BC94 /* Info.plist */,
 			);
-			path = "VK-Blakit";
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		F236FEC42112EF700081BC94 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F236FEC52112EF920081BC94 /* WallTableViewCell.swift */,
+				F236FEC62112EF920081BC94 /* WallTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F236FEB52112CEAC0081BC94 /* LaunchScreen.storyboard in Resources */,
+				F236FEC82112EF920081BC94 /* WallTableViewCell.xib in Resources */,
 				F236FEB22112CEAC0081BC94 /* Assets.xcassets in Resources */,
 				F236FEB02112CEAB0081BC94 /* Main.storyboard in Resources */,
 			);
@@ -135,7 +185,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F236FEAD2112CEAB0081BC94 /* ViewController.swift in Sources */,
+				F236FEC22112DCB20081BC94 /* WallTableViewController.swift in Sources */,
+				F236FEC72112EF920081BC94 /* WallTableViewCell.swift in Sources */,
+				F236FEC02112DC930081BC94 /* LoginViewController.swift in Sources */,
 				F236FEAB2112CEAB0081BC94 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VCKQL6T87N;
-				INFOPLIST_FILE = "VK-Blakit/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/VK-Blakit/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VCKQL6T87N;
-				INFOPLIST_FILE = "VK-Blakit/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/VK-Blakit/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
