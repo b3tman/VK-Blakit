@@ -20,5 +20,11 @@ class WallTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-
+    
+    func prepareCell(with news: News, with source: Source) {
+        self.nameLabel?.text = source.name
+        self.dateLabel?.text = Date().offset(from: news.date)
+        self.postTextLabel?.text = news.text
+        self.profileIcon?.imageFromServerURL(urlString: source.photoURL)
+    }
 }

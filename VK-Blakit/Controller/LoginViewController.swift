@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if let sdk = VKSdk.initialize(withAppId: appID) {
             sdk.register(self)
             sdk.uiDelegate = self
@@ -40,7 +39,6 @@ class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
         }
     }
     
-    
     func vkSdkShouldPresent(_ controller: UIViewController!) {
         present(controller, animated: true, completion: nil)
     }
@@ -51,10 +49,14 @@ class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         UserDefaults.standard.set(true, forKey: authorizedKey)
+        
+        let wallController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: wallControllerIdentifier)
+        UIApplication.shared.delegate?.window??.rootViewController = wallController
     }
     
     func vkSdkUserAuthorizationFailed() {
         self.showAlert(with: "Что-то пошло не так", message: "Не удаось авторизовать вас на сервере")
     }
+    
 
 }

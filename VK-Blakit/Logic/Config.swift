@@ -8,8 +8,8 @@
 
 import Foundation
 
-let scope = ["friends", "wall"]
+let scope = ["wall"]
 let authorizedKey = "authorized"
 let loginControllerIdentifier = "loginController"
-let newsfeedControllerIdentifier = "newsfeedController"
-let appID = "6650592"
+let wallControllerIdentifier = "wallController"
+let appID = "6655753"

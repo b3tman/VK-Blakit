@@ -13,9 +13,21 @@ import VK_ios_sdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        VKSdk.initialize(withAppId: appID)
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var initialViewController = storyboard.instantiateViewController(withIdentifier: loginControllerIdentifier)
+        if UserDefaults.standard.bool(forKey: authorizedKey) {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: wallControllerIdentifier)
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
         
         return true
     }
