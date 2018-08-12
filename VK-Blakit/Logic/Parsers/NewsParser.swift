@@ -13,9 +13,7 @@ class NewsParser: NSObject {
     
     public func parseResponse(from json: JSON) -> [News]? {
         guard let newsJSONArray = json["items"].array else { return nil }
-        
         var news = [News]()
-        
         for newsJSON in newsJSONArray {
             let newsItem = News(params: newsJSON)
             news.append(newsItem)

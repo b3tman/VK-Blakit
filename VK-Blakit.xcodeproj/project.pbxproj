@@ -21,7 +21,7 @@
 		F27733C6211EE6CA009DB4D8 /* ProfilesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27733C5211EE6CA009DB4D8 /* ProfilesParser.swift */; };
 		F27733C8211EF6EB009DB4D8 /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27733C7211EF6EB009DB4D8 /* NewsParser.swift */; };
 		F299F5F32113B58D001C8DC9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F299F5F22113B58D001C8DC9 /* Config.swift */; };
-		F299F5F52113B9DB001C8DC9 /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F299F5F42113B9DB001C8DC9 /* Sugar.swift */; };
+		F299F5F52113B9DB001C8DC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F299F5F42113B9DB001C8DC9 /* Extensions.swift */; };
 		F2B4E4AA211B2F5300A1935F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E4A9211B2F5300A1935F /* News.swift */; };
 		F2B4E4AC211B305700A1935F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E4AB211B305700A1935F /* Profile.swift */; };
 		F2B4E4AE211B307400A1935F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E4AD211B307400A1935F /* Group.swift */; };
@@ -49,7 +49,7 @@
 		F27733C5211EE6CA009DB4D8 /* ProfilesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesParser.swift; sourceTree = "<group>"; };
 		F27733C7211EF6EB009DB4D8 /* NewsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsParser.swift; sourceTree = "<group>"; };
 		F299F5F22113B58D001C8DC9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		F299F5F42113B9DB001C8DC9 /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
+		F299F5F42113B9DB001C8DC9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2B4E4A9211B2F5300A1935F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		F2B4E4AB211B305700A1935F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F2B4E4AD211B307400A1935F /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -153,7 +153,9 @@
 				F236FEB12112CEAC0081BC94 /* Assets.xcassets */,
 				F236FEB32112CEAC0081BC94 /* LaunchScreen.storyboard */,
 				F236FEB62112CEAC0081BC94 /* Info.plist */,
-				F299F5F42113B9DB001C8DC9 /* Sugar.swift */,
+				F2B4E4B1211B33C700A1935F /* DeclineWord.swift */,
+				F2B4E4B3211B33F600A1935F /* WordAndPicker.swift */,
+				F299F5F42113B9DB001C8DC9 /* Extensions.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -167,16 +169,22 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F299F5F12113B581001C8DC9 /* Logic */ = {
+		F27733C9211F7AE3009DB4D8 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				F299F5F22113B58D001C8DC9 /* Config.swift */,
-				F2B4E4B1211B33C700A1935F /* DeclineWord.swift */,
-				F2B4E4B3211B33F600A1935F /* WordAndPicker.swift */,
-				F27733C1211EE0D0009DB4D8 /* NetworkManager.swift */,
 				F27733C7211EF6EB009DB4D8 /* NewsParser.swift */,
 				F27733C5211EE6CA009DB4D8 /* ProfilesParser.swift */,
 				F27733C3211EE4F3009DB4D8 /* GroupsParser.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		F299F5F12113B581001C8DC9 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				F27733C9211F7AE3009DB4D8 /* Parsers */,
+				F27733C1211EE0D0009DB4D8 /* NetworkManager.swift */,
+				F299F5F22113B58D001C8DC9 /* Config.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -306,7 +314,7 @@
 				F27733C8211EF6EB009DB4D8 /* NewsParser.swift in Sources */,
 				F236FEC72112EF920081BC94 /* WallTableViewCell.swift in Sources */,
 				F27733C6211EE6CA009DB4D8 /* ProfilesParser.swift in Sources */,
-				F299F5F52113B9DB001C8DC9 /* Sugar.swift in Sources */,
+				F299F5F52113B9DB001C8DC9 /* Extensions.swift in Sources */,
 				F299F5F32113B58D001C8DC9 /* Config.swift in Sources */,
 				F2B4E4AA211B2F5300A1935F /* News.swift in Sources */,
 				F236FEC02112DC930081BC94 /* LoginViewController.swift in Sources */,

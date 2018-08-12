@@ -13,9 +13,7 @@ class ProfilesParser: NSObject {
     
     public func parseResponse(from json: JSON) -> [Int : Profile]? {
         guard let profilesJSONArray = json["profiles"].array else { return nil }
-        
         var profiles = [Int : Profile]()
-        
         for profileJSON in profilesJSONArray {
             let profile = Profile(params: profileJSON)
             profiles[profile.id] = profile

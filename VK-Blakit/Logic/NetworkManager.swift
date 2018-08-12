@@ -21,12 +21,13 @@ class NetworkManager: NSObject {
     
     public func executeRequest(for id: Int, completion: @escaping Completion) {
         
-        let getParameters: [String : Any] = ["owner_id": "\(id)", "count" : "10", "extended" : "1", "fields" : "photo"]
+        let getParameters: [String : Any] = ["owner_id": "\(id)", "count" : "50", "extended" : "1", "fields" : "photo"]
         
         if let request = VKRequest(method: "wall.get", parameters: getParameters) {
             request.execute(resultBlock: { (response) in
                 if let jsonResponse = response {
                     let json = JSON(jsonResponse.json)
+                    print(json)
                     let news = self.newsParser.parseResponse(from: json)
                     let profiles = self.profilesParser.parseResponse(from: json)
                     let groups = self.groupsParser.parseResponse(from: json)

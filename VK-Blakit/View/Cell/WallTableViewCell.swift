@@ -14,17 +14,17 @@ class WallTableViewCell: UITableViewCell {
     @IBOutlet var profileIcon: UIImageView?
     @IBOutlet var nameLabel: UILabel?
     @IBOutlet var dateLabel: UILabel?
-    @IBOutlet var postTextLabel: UILabel?
+    @IBOutlet var postTextView: UITextView?
+    @IBOutlet var photoImageView: UIImageView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        profileIcon?.roundCorners()
     }
     
-    func prepareCell(with news: News, with source: Source) {
+    func prepare(with news: News, with source: Source) {
         self.nameLabel?.text = source.name
         self.dateLabel?.text = Date().offset(from: news.date)
-        self.postTextLabel?.text = news.text
-        self.profileIcon?.imageFromServerURL(urlString: source.photoURL)
+        self.postTextView?.text = news.text
     }
 }

@@ -11,12 +11,12 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(with title: String?, message: String?) {
-        let okay = "Хорошо"
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: okay, style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    func presentAlertController(_ title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel) { [unowned alertController] _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -27,21 +27,21 @@ extension Date {
     }
     
     func hours(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.hour], from: date, to: self).hour ?? 0
+        return Calendar.current.component(.hour, from: date)
     }
     
     func minutes(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
+        return Calendar.current.component(.minute, from: date)
     }
     
     func seconds(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+        return Calendar.current.component(.second, from: date)
     }
     
     func offset(from date: Date) -> String {
         let ago = "назад"
         let dateFormat = "d MMM"
-        let yesterdayAt = "Вчера в"
+        let yesterdayAt = "Вчера в "
         let timeString = "\(hours(from: date)):\(minutes(from: date))"
         
         let daysAgo = days(from: date)
@@ -77,6 +77,18 @@ extension Date {
 }
 
 extension UIImageView {
+    
+    func setDefault() {
+        self.image = nil
+        self.backgroundColor = .darkGray
+        self.isHidden = true
+    }
+    
+    func roundCorners() {
+        self.layer.cornerRadius = self.frame.size.width / 2
+        self.clipsToBounds = true
+    }
+    
     public func imageFromServerURL(urlString: String) {
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
             
@@ -86,17 +98,13 @@ extension UIImageView {
             }
             DispatchQueue.main.async(execute: { () -> Void in
                 UIView.transition(with: self,
-                                  duration: 0.3,
-                                  options: .transitionCrossDissolve,
-                                  animations: {
-                                    self.image = UIImage(data: data!)
+                              duration: 0.3,
+                               options: .transitionCrossDissolve,
+                            animations: {
+                            self.image = UIImage(data: data!)
                 },
-                                  completion: nil)
-                
+                            completion: nil)
             })
-            
         }).resume()
     }
 }
-
-

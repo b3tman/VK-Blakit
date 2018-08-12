@@ -12,19 +12,23 @@ import SwiftyJSON
 
 class WallTableViewController: UITableViewController {
 
-    let wallCellIdentifier = "wallCellIdentifier"
+    //MARK: - Outlets
+    @IBOutlet var searchBar: UISearchBar?
+    
+    //MARK: - Properties
     private let networkManager = NetworkManager()
     private var groups = [Int : Group]()
     private var news = [News]()
     private var profiles = [Int : Profile]()
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
+        searchBar?.delegate = self
         registerCell()
         checkSession()
-        loadNews()
     }
     
     //MARK: - Actions
@@ -43,6 +47,7 @@ class WallTableViewController: UITableViewController {
         present(confirmAlert, animated: true, completion: nil)
     }
     
+    //MARK: - Private
     private func logOut() {
         if let storyboard = self.storyboard {
             VKSdk.forceLogout()
@@ -61,8 +66,8 @@ class WallTableViewController: UITableViewController {
         }
     }
     
-    private func loadNews() {
-        networkManager.executeRequest(for: 89497074) { [weak self] (answer, error) in
+    private func loadNews(with searchNumber: Int) {
+        networkManager.executeRequest(for: searchNumber) { [weak self] (answer, error) in
             guard let answerNews = answer?.news,
                   let answerGroups = answer?.groups,
                   let answerProfiles = answer?.profiles else { return }
@@ -73,10 +78,15 @@ class WallTableViewController: UITableViewController {
         }
     }
     
-    //MARK: - Private
     private func registerCell() {
         let nib = UINib(nibName: "WallTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: wallCellIdentifier)
+    }
+    
+    private func restoreData() {
+        news = []
+        groups = [:]
+        profiles = [:]
     }
     
     private func getSourceNews(from sourceID: Int) -> Source? {
@@ -88,7 +98,7 @@ class WallTableViewController: UITableViewController {
     }
     
     
-    // MARK: - Table view data source
+    //MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
     }
@@ -100,9 +110,37 @@ class WallTableViewController: UITableViewController {
         let newsSourceID = news.sourceID
         
         if let source = getSourceNews(from: newsSourceID) {
-            cell.prepareCell(with: news, with: source)
+            cell.prepare(with: news, with: source)
+            cell.profileIcon?.image = nil
+            cell.photoImageView?.setDefault()
+            cell.profileIcon?.imageFromServerURL(urlString: source.photoURL)
+            if let newsPostIcon = news.postIcon {
+                cell.photoImageView?.imageFromServerURL(urlString: newsPostIcon)
+                cell.photoImageView?.isHidden = false
+            }
+            
         }
         
         return cell
+    }
+}
+
+extension WallTableViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text != "" else { return }
+        if let number = Int(text) {
+            self.searchBar?.endEditing(true)
+            loadNews(with: number)
+        } else {
+            presentAlertController("Ошибка", message: "Вы ввели неправильный ID пользователя или группы")
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            restoreData()
+            tableView.reloadData()
+        }
     }
 }

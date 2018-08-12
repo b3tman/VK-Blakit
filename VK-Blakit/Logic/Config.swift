@@ -12,4 +12,6 @@ let scope = ["wall"]
 let authorizedKey = "authorized"
 let loginControllerIdentifier = "loginController"
 let wallControllerIdentifier = "wallController"
+let wallSegue = "wallSegue"
+let wallCellIdentifier = "wallCellIdentifier"
 let appID = "6655753"
