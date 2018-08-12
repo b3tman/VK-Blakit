@@ -17,9 +17,9 @@ class WallTableViewController: UITableViewController {
     
     //MARK: - Properties
     private let networkManager = NetworkManager()
-    private var groups = [Int : Group]()
+    private var groups = [Int: Group]()
     private var news = [News]()
-    private var profiles = [Int : Profile]()
+    private var profiles = [Int: Profile]()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -66,18 +66,6 @@ class WallTableViewController: UITableViewController {
         }
     }
     
-    private func loadNews(with searchNumber: Int) {
-        networkManager.executeRequest(for: searchNumber) { [weak self] (answer, error) in
-            guard let answerNews = answer?.news,
-                  let answerGroups = answer?.groups,
-                  let answerProfiles = answer?.profiles else { return }
-            self?.news = answerNews
-            self?.groups = answerGroups
-            self?.profiles = answerProfiles
-            self?.tableView.reloadData()
-        }
-    }
-    
     private func registerCell() {
         let nib = UINib(nibName: "WallTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: wallCellIdentifier)
@@ -97,6 +85,17 @@ class WallTableViewController: UITableViewController {
         }
     }
     
+    private func loadNews(with searchNumber: Int) {
+        networkManager.executeRequest(for: searchNumber) { [weak self] (answer, error) in
+            guard let answerNews = answer?.news,
+                let answerGroups = answer?.groups,
+                let answerProfiles = answer?.profiles else { return }
+            self?.news = answerNews
+            self?.groups = answerGroups
+            self?.profiles = answerProfiles
+            self?.tableView.reloadData()
+        }
+    }
     
     //MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,14 +110,13 @@ class WallTableViewController: UITableViewController {
         
         if let source = getSourceNews(from: newsSourceID) {
             cell.prepare(with: news, with: source)
-            cell.profileIcon?.image = nil
+            cell.profileImageView?.image = nil
             cell.photoImageView?.setDefault()
-            cell.profileIcon?.imageFromServerURL(urlString: source.photoURL)
+            cell.profileImageView?.imageFromServerURL(urlString: source.photoURL)
             if let newsPostIcon = news.postIcon {
                 cell.photoImageView?.imageFromServerURL(urlString: newsPostIcon)
                 cell.photoImageView?.isHidden = false
             }
-            
         }
         
         return cell

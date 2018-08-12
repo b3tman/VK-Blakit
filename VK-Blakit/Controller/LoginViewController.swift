@@ -11,6 +11,7 @@ import VK_ios_sdk
 
 class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         if let sdk = VKSdk.initialize(withAppId: appID) {
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
         }
     }
     
+    //MARK: - Actions
     @IBAction func loginAction(_ sender: UIButton) {
         VKSdk.wakeUpSession(scope) { (_ state: VKAuthorizationState, _ error: Error?) -> Void in
             switch state {
@@ -37,6 +39,7 @@ class LoginViewController: UIViewController, VKSdkDelegate, VKSdkUIDelegate {
         }
     }
     
+    //MARK: - VK_ios_sdk delegate
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         UserDefaults.standard.set(true, forKey: authorizedKey)
         

@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 
 struct Profile: Source {
-    
     var id: Int
     var name: String
     var photoURL: String
@@ -22,5 +21,4 @@ struct Profile: Source {
         self.id = params["id"].intValue
         self.photoURL = params["photo"].stringValue
     }
-    
 }

@@ -11,9 +11,9 @@ import SwiftyJSON
 
 class GroupsParser: NSObject {
     
-    public func parseResponse(from json: JSON) -> [Int : Group]? {
+    public func parseResponse(from json: JSON) -> [Int: Group]? {
         guard let groupsJSONArray = json["groups"].array else { return nil }
-        var groups = [Int : Group]()
+        var groups = [Int: Group]()
         for groupJSON in groupsJSONArray {
             let group = Group(params: groupJSON)
             groups[-group.id] = group

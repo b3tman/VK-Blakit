@@ -86,7 +86,7 @@
                 <outlet property="nameLabel" destination="TdG-Yx-62d" id="Xai-N0-aSv"/>
                 <outlet property="photoImageView" destination="M2X-yY-5y9" id="zHJ-dH-0XB"/>
                 <outlet property="postTextView" destination="QFA-h6-Afy" id="WIf-63-v1G"/>
-                <outlet property="profileIcon" destination="Hu9-Pe-1kx" id="bK3-om-esl"/>
+                <outlet property="profileImageView" destination="Hu9-Pe-1kx" id="m1k-Gt-5OX"/>
             </connections>
             <point key="canvasLocation" x="-258" y="145"/>
         </tableViewCell>

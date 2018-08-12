@@ -9,7 +9,6 @@
 import Foundation
 
 protocol Source {
-    
     var id: Int { get set }
     var name: String { get set }
     var photoURL: String { get set }

@@ -10,7 +10,7 @@ import Foundation
 import VK_ios_sdk
 import SwiftyJSON
 
-typealias Answer = (news: [News]?, profiles: [Int : Profile]?, groups: [Int : Group]?)
+typealias Answer = (news: [News]?, profiles: [Int: Profile]?, groups: [Int: Group]?)
 typealias Completion = (Answer?, _ error: String?) -> Void
 
 class NetworkManager: NSObject {
@@ -21,7 +21,7 @@ class NetworkManager: NSObject {
     
     public func executeRequest(for id: Int, completion: @escaping Completion) {
         
-        let getParameters: [String : Any] = ["owner_id": "\(id)", "count" : "50", "extended" : "1", "fields" : "photo"]
+        let getParameters: [String: Any] = ["owner_id": "\(id)", "count": "50", "extended": "1", "fields": "photo"]
         
         if let request = VKRequest(method: "wall.get", parameters: getParameters) {
             request.execute(resultBlock: { (response) in

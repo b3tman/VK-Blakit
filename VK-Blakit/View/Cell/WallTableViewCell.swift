@@ -11,17 +11,19 @@ import UIKit
 class WallTableViewCell: UITableViewCell {
 
     //MARK: - Outlets
-    @IBOutlet var profileIcon: UIImageView?
+    @IBOutlet var profileImageView: UIImageView?
     @IBOutlet var nameLabel: UILabel?
     @IBOutlet var dateLabel: UILabel?
     @IBOutlet var postTextView: UITextView?
     @IBOutlet var photoImageView: UIImageView?
     
+    //MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileIcon?.roundCorners()
+        profileImageView?.roundCorners()
     }
     
+    //MARK: - Methods
     func prepare(with news: News, with source: Source) {
         self.nameLabel?.text = source.name
         self.dateLabel?.text = Date().offset(from: news.date)
